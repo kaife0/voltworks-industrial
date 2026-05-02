@@ -46,9 +46,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <button className="hidden sm:block bg-primary text-white font-sans text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 md:py-3 uppercase tracking-widest hover:bg-primary-light transition-all rounded-none">
+          <Link to="/contact" className="hidden sm:block bg-primary text-white font-sans text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 md:py-3 uppercase tracking-widest hover:bg-primary-light transition-all rounded-none text-center">
             Request Quote
-          </button>
+          </Link>
           <button 
             className="md:hidden text-slate-900 focus:outline-none" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -83,9 +83,9 @@ export default function Header() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-slate-200">
-                <button className="w-full bg-primary text-white font-sans text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-primary-light transition-all rounded-none">
+                <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block w-full text-center bg-primary text-white font-sans text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-primary-light transition-all rounded-none">
                   Request Quote
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

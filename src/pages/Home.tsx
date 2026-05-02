@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Terminal, Phone, Mail, CheckCircle, PlaySquare } from 'lucide-react';
 import homeVid from '../public/home-vid.mp4';
 import top1 from '../public/top1.png';
@@ -7,6 +8,7 @@ import top2 from '../public/top2.png';
 import top3 from '../public/top3.png';
 import top4 from '../public/top4.png';
 import whyImg from '../public/why.png';
+import techBrochure from '../public/Technical Brochure - Q4 FY 24-25.pdf';
 
 // Partner images
 import p1 from '../public/image.png';
@@ -214,12 +216,12 @@ export default function Home() {
             Consult with our engineering team to design a custom solution for your facility's power and control needs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-primary text-white font-headline text-xs font-bold px-10 py-5 hover:bg-primary-light transition-all uppercase tracking-widest">
+            <Link to="/contact" className="bg-primary text-white font-headline text-xs font-bold px-10 py-5 hover:bg-primary-light transition-all uppercase tracking-widest inline-block text-center">
               Schedule Consultation
-            </button>
-            <button className="border border-slate-700 text-white font-headline text-xs font-bold px-10 py-5 hover:bg-slate-800 transition-all uppercase tracking-widest">
+            </Link>
+            <a href={techBrochure} download="Voltworks_Technical_Brochure.pdf" className="border border-slate-700 text-white font-headline text-xs font-bold px-10 py-5 hover:bg-slate-800 transition-all uppercase tracking-widest inline-block text-center">
               Download Technical Catalog
-            </button>
+            </a>
           </div>
         </motion.div>
       </section>
