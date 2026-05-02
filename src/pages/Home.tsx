@@ -2,6 +2,10 @@ import { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Terminal, Phone, Mail, CheckCircle, PlaySquare } from 'lucide-react';
 import homeVid from '../public/home-vid.mp4';
+import top1 from '../public/top1.png';
+import top2 from '../public/top2.png';
+import top3 from '../public/top3.png';
+import top4 from '../public/top4.png';
 // I'll create a simple icon mapper or just use the icons directly
 
 export default function Home() {
@@ -71,37 +75,10 @@ export default function Home() {
             Trusted & Supported By
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-24 opacity-90">
-            {/* ST life.augmented */}
-            <div className="flex flex-col items-center">
-              <span className="text-[#39b4e6] text-4xl md:text-5xl font-bold tracking-tighter italic">ST</span>
-              <span className="text-[#39b4e6] font-sans text-[8px] md:text-[10px] mt-1 font-light tracking-wide">life.augmented</span>
-            </div>
-            
-            {/* IIT Kanpur / SIIC */}
-            <div className="flex items-center gap-3 text-white text-left">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white flex items-center justify-center text-[10px] md:text-xs font-bold shrink-0">IITK</div>
-              <div className="text-[8px] md:text-[10px] font-bold leading-tight font-sans tracking-wide">
-                STARTUP<br />
-                INCUBATION AND<br />
-                INNOVATION<br />
-                CENTRE<br />
-                IIT KANPUR
-              </div>
-            </div>
-
-            {/* IIT Indore ace Foundation */}
-            <div className="flex items-center gap-3 text-white text-left">
-              <div className="text-[#e22d4c] font-bold text-3xl md:text-4xl leading-none italic pr-1">ace</div>
-              <div className="text-[8px] md:text-[10px] font-bold leading-tight font-sans tracking-wide">
-                IIT INDORE<br />
-                Foundation
-              </div>
-            </div>
-
-            {/* Citibank */}
-            <div className="flex items-center font-sans text-2xl md:text-3xl font-medium tracking-tight text-[#2c82c9]">
-              citi<span className="font-light text-[#294c73]">bank</span>
-            </div>
+            <img src={top1} alt="Top 1 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
+            <img src={top2} alt="Top 2 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
+            <img src={top3} alt="Top 3 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
+            <img src={top4} alt="Top 4 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
           </div>
         </div>
       </section>

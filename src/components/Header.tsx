@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import logo from '../public/Voltworks logo horizontal.svg';
 
 export default function Header() {
   const location = useLocation();
@@ -19,13 +20,12 @@ export default function Header() {
     <header className="bg-white sticky top-0 z-50 border-b border-slate-200">
       <div className="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-360 mx-auto">
         <div className="text-2xl font-black tracking-tighter">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="block">
             <img
-              alt="Voltworks Icon"
-              className="h-8 w-auto object-contain"
-              src="https://lh3.googleusercontent.com/aida/ADBb0ugEKrF3JlIjk0PG3ai5ZOD_EEZRGKbIn9wase02MgX4PiwtAYmOjHP7jP-gxtDxlCPhZuYmXHB1zYBEjLqM_Kt0MoM_b__PExTz9qIUVGmdjrmFKS8zsYzf-9mnWFkHneNurWkEE1CZ_ylLjA0fMu7abxByDHXVZ4QH20v9IxHMFKoEE9W4UA-KdHqwYTri76tuufqWOp28LBlbrKeCa-XLkcFcvWlnZ9ewr0LKjM0Z58cthwRfNJ2hskh3uOW5tsWwTpPiNKkYrA"
+              alt="Voltworks Logo"
+              className="h-5 md:h-6 lg:h-8 w-auto object-contain"
+              src={logo}
             />
-            <span className="font-headline tracking-tighter text-primary text-xl md:text-2xl">VOLTWORKS</span>
           </Link>
         </div>
 
