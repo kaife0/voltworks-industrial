@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { ChevronRight, ZoomIn, Box, FileText, Download, CheckCircle } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ export default function ProductDetail() {
       { label: 'Operating Voltage', value: '380-480 VAC, 3-Phase' },
       { label: 'Rated Torque', value: '286 Nm' },
       { label: 'Nominal Speed', value: '1500 RPM @ 50Hz' },
-      { label: 'Insulation Class', value: 'Class H (180°C)' }
+      { label: 'Insulation Class', value: 'Class H (180Â°C)' }
     ],
     features: [
       'Double-shielded ball bearings for maintenance-free operation over 50,000 hours.',
@@ -34,7 +34,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <main className="max-w-360 mx-auto px-6 md:px-16 py-12">
+    <main className="max-w-7xl mx-auto px-6 md:px-16 py-12">
       {/* Breadcrumbs */}
       <nav className="mb-8 flex items-center space-x-2 text-slate-400 font-headline text-[10px] md:text-xs tracking-widest uppercase">
         <Link to="/products" className="hover:text-primary transition-colors">Catalog</Link>

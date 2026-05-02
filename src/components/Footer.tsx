@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Linkedin, Twitter } from 'lucide-react';
 import logo from '../public/Voltworks logo horizontal.svg';
 
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-200 pt-8 text-center text-slate-500 font-body text-sm">
-          <p>Copyright © 2024. All Rights Reserved.</p>
+          <p>Copyright Â© 2024. All Rights Reserved.</p>
           <p>VoltWorks Technologies Private Limited</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 
 export default function Careers() {
   return (
@@ -11,7 +11,7 @@ export default function Careers() {
         </p>
       </section>
 
-      <section className="py-24 px-6 md:px-16 max-w-360 mx-auto">
+      <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="bg-white p-12 border border-outline-v shadow-sm text-center">
           <h2 className="font-headline text-3xl mb-4 uppercase">Open Positions</h2>
           <p className="font-body text-slate-600">

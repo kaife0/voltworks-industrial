@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { PlaySquare } from 'lucide-react';
@@ -35,14 +35,14 @@ export default function Home() {
     <div className="flex flex-col bg-[#040a1e]">
       {/* Hero Section */}
       <section className="relative w-full bg-[#040a1e] overflow-hidden flex flex-col justify-center pt-16 md:pt-24 lg:pt-32 pb-0">
-        <div className="relative z-10 max-w-360 mx-auto px-6 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-2xl text-left"
           >
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-white mb-6 font-bold leading-tight tracking-tight">
+            <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6 font-bold leading-tight tracking-tight">
               Enabling smart and connected electric vehicles through software defined powertrain kits
             </h1>
             <p className="font-body text-sm md:text-base lg:text-lg text-slate-300 mb-10 max-w-xl leading-relaxed">
@@ -56,10 +56,10 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative group w-full max-w-150 mx-auto aspect-video md:aspect-4/3 bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200"
+            className="relative group w-full max-w-150 mx-auto aspect-video md:aspect-4/3 bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200 mt-8 md:mt-0"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -97,11 +97,11 @@ export default function Home() {
       </section>
 
       {/* Why VoltWorks Section */}
-      <section className="bg-white py-16 md:py-24 px-6 md:px-16 w-full">
-        <h2 className="text-center text-3xl md:text-5xl font-semibold text-slate-800 mb-16 w-full max-w-360 mx-auto leading-snug">
+      <section className="bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 w-full overflow-hidden">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold text-slate-800 mb-10 md:mb-16 w-full max-w-7xl mx-auto leading-snug">
           Introducing the new era of achieving high quality with cutting edge motors and controllers.
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center w-full max-w-360 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center w-full max-w-7xl mx-auto">
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
               Why VoltWorks?
@@ -141,8 +141,8 @@ export default function Home() {
       </section>
 
       {/* Mission & Purpose Section */}
-      <section className="bg-white py-24 md:py-32 px-6 md:px-16 max-w-360 mx-auto" id="about">
-        <div className="grid grid-cols-12 gap-8 md:gap-16">
+      <section className="bg-white py-16 md:py-32 px-4 sm:px-6 md:px-16 max-w-7xl mx-auto overflow-hidden" id="about">
+        <div className="grid grid-cols-12 gap-6 md:gap-16">
           <div className="col-span-12 lg:col-span-5">
             <span className="font-headline text-primary text-xs font-bold mb-4 block tracking-widest uppercase">
               OUR PURPOSE
@@ -174,9 +174,9 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-industrial-bg py-24 px-6 md:px-16">
-        <div className="max-w-360 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <section className="bg-industrial-bg py-16 px-4 sm:px-6 md:px-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
             <div className="bg-white p-12 border border-outline-v/30 flex flex-col justify-between aspect-square md:aspect-auto">
               <span className="text-5xl md:text-6xl font-headline text-primary">30+</span>
               <p className="font-headline text-[10px] font-bold mt-8 tracking-widest uppercase text-slate-500">

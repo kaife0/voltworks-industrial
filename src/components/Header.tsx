@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
@@ -17,9 +17,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b border-slate-200">
-      <div className="flex justify-between items-center w-full px-6 md:px-16 py-4 max-w-360 mx-auto">
-        <div className="text-2xl font-black tracking-tighter">
+    <header className="bg-white sticky top-0 z-50 border-b border-slate-200 w-full overflow-hidden">
+      <div className="flex justify-between items-center w-full px-4 sm:px-6 md:px-16 py-4 max-w-7xl mx-auto">
+        <div className="text-2xl font-black tracking-tighter shrink-0">
           <Link to="/" className="block">
             <img
               alt="Voltworks Logo"

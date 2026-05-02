@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { Filter, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -72,7 +72,7 @@ const products = [
 
 export default function Products() {
   return (
-    <main className="max-w-360 mx-auto px-6 md:px-16 py-12 min-h-screen">
+    <main className="max-w-7xl mx-auto px-6 md:px-16 py-12 min-h-screen">
       {/* Page Header */}
       <div className="mb-12">
         <h1 className="font-headline text-3xl md:text-5xl text-charcoal mb-2 uppercase">Industrial Solutions</h1>
