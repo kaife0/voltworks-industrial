@@ -6,6 +6,7 @@ import top1 from '../public/top1.png';
 import top2 from '../public/top2.png';
 import top3 from '../public/top3.png';
 import top4 from '../public/top4.png';
+import whyImg from '../public/why.png';
 // I'll create a simple icon mapper or just use the icons directly
 
 export default function Home() {
@@ -79,6 +80,29 @@ export default function Home() {
             <img src={top2} alt="Top 2 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
             <img src={top3} alt="Top 3 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
             <img src={top4} alt="Top 4 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
+          </div>
+        </div>
+      </section>
+
+      {/* Why VoltWorks Section */}
+      <section className="bg-white py-16 md:py-24 px-6 md:px-16 w-full">
+        <h2 className="text-center text-3xl md:text-5xl font-semibold text-slate-800 mb-16 w-full max-w-360 mx-auto leading-snug">
+          Introducing the new era of achieving high quality with cutting edge motors and controllers.
+        </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center w-full max-w-360 mx-auto">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              Why VoltWorks?
+            </h3>
+            <p className="text-slate-600 mb-6 leading-relaxed">
+              Driven by innovation and a passion for revolutionizing the electric vehicle (EV) industry. Our team of experienced engineers, with expertise gleaned from years of working in Asian and European markets, brings together cutting-edge technology with a deep understanding of real-world needs.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              We specialize in developing the heart of any EV: the powertrain. This integrated system combines a state-of-the-art motor and controller, designed to optimize performance and efficiency. VoltWorks powertrains are built on a robust software stack, enabling over-the-air (SOTA) updates for continuous improvement. Additionally, real-time data streaming to the cloud allows for in-depth vehicle analysis, ensuring peak performance.
+            </p>
+          </div>
+          <div className="flex justify-center lg:justify-end">
+            <img src={whyImg} alt="Why VoltWorks Platform Ecosystem" className="w-full max-w-2xl object-contain drop-shadow-sm" />
           </div>
         </div>
       </section>
