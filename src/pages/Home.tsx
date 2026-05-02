@@ -7,6 +7,16 @@ import top2 from '../public/top2.png';
 import top3 from '../public/top3.png';
 import top4 from '../public/top4.png';
 import whyImg from '../public/why.png';
+
+// Partner images
+import p1 from '../public/image.png';
+import p2 from '../public/image (1).png';
+import p3 from '../public/image (2).png';
+import p4 from '../public/image (3).png';
+import p5 from '../public/image (4).png';
+import p6 from '../public/image (5).png';
+import p7 from '../public/image (6).png';
+
 // I'll create a simple icon mapper or just use the icons directly
 
 export default function Home() {
@@ -104,6 +114,27 @@ export default function Home() {
           <div className="flex justify-center lg:justify-end">
             <img src={whyImg} alt="Why VoltWorks Platform Ecosystem" className="w-full max-w-2xl object-contain drop-shadow-sm" />
           </div>
+        </div>
+      </section>
+
+      {/* Unify & Partner Section */}
+      <section className="bg-white py-16 md:py-24 px-6 md:px-16 w-full text-center border-t border-slate-100">
+        <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
+          Unify, Track & Empower: Electrify your vehicles
+        </h2>
+        <p className="text-slate-600 mb-16 max-w-4xl mx-auto leading-relaxed text-sm md:text-base lg:text-lg">
+          Craft the perfect powertrain for your vision. Our cutting-edge technology unlocks unique performance and unmatched safety, tailored to your vehicle's DNA.
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center max-w-5xl mx-auto px-4">
+          <img src={top1} alt="Partner 1" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
+          <img src={p1} alt="Partner 2" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
+          <img src={p2} alt="Partner 3" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
+          <img src={p3} alt="Partner 4" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply scale-160" />
+          <img src={p4} alt="Partner 5" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
+          <img src={p5} alt="Partner 6" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
+          <img src={p6} alt="Partner 7" className="h-12 md:h-14 lg:h-16 object-contain mix-blend-multiply scale-205" />
+          <img src={p7} alt="Partner 8" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
         </div>
       </section>
 
