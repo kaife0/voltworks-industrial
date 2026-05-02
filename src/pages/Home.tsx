@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Terminal, Phone, Mail, CheckCircle, PlaySquare } from 'lucide-react';
+import { PlaySquare } from 'lucide-react';
 import homeVid from '../public/home-vid.mp4';
 import top1 from '../public/top1.png';
 import top2 from '../public/top2.png';
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-[#040a1e]">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] md:min-h-[850px] bg-[#040a1e] overflow-hidden flex flex-col justify-center pt-24 pb-16">
+      <section className="relative w-full bg-[#040a1e] overflow-hidden flex flex-col justify-center pt-16 md:pt-24 lg:pt-32 pb-0">
         <div className="relative z-10 max-w-360 mx-auto px-6 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -59,7 +59,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative group w-full max-w-[600px] mx-auto aspect-video md:aspect-[4/3] bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200"
+            className="relative group w-full max-w-150 mx-auto aspect-video md:aspect-4/3 bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -83,15 +83,15 @@ export default function Home() {
         </div>
 
         {/* Trusted & Supported By Section */}
-        <div className="w-full max-w-360 mx-auto px-6 md:px-16 mt-24 md:mt-32 pb-8 border-b border-slate-800/50">
-          <h3 className="text-center text-white font-headline text-lg md:text-2xl mb-12 uppercase tracking-wide font-normal">
+        <div className="w-full max-w-350 mx-auto px-4 md:px-12 lg:px-20 mt-12 md:mt-24 pb-8 md:pb-12 border-b border-slate-800/50">
+          <h3 className="text-center text-white font-headline text-base md:text-lg lg:text-xl mb-8 md:mb-14 uppercase tracking-wide font-normal">
             Trusted & Supported By
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-24 opacity-90">
-            <img src={top1} alt="Top 1 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
-            <img src={top2} alt="Top 2 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
-            <img src={top3} alt="Top 3 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
-            <img src={top4} alt="Top 4 Logo" className="h-16 md:h-24 lg:h-28 w-auto object-contain" />
+          <div className="flex flex-wrap items-center justify-center md:justify-between gap-6 md:gap-12 opacity-90 w-full">
+            <img src={top1} alt="Top 1 Logo" className="w-24 md:w-32 lg:w-40 object-contain" />
+            <img src={top2} alt="Top 2 Logo" className="w-40 md:w-56 lg:w-72 object-contain" />
+            <img src={top3} alt="Top 3 Logo" className="w-28 md:w-40 lg:w-48 object-contain" />
+            <img src={top4} alt="Top 4 Logo" className="w-24 md:w-32 lg:w-40 object-contain" />
           </div>
         </div>
       </section>
@@ -128,14 +128,14 @@ export default function Home() {
           Craft the perfect powertrain for your vision. Our cutting-edge technology unlocks unique performance and unmatched safety, tailored to your vehicle's DNA.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center max-w-5xl mx-auto px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center max-w-5xl mx-auto px-4">
           <img src={top1} alt="Partner 1" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p1} alt="Partner 2" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p2} alt="Partner 3" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
-          <img src={p3} alt="Partner 4" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply scale-160" />
+          <img src={p3} alt="Partner 4" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-125" />
           <img src={p4} alt="Partner 5" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p5} alt="Partner 6" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
-          <img src={p6} alt="Partner 7" className="h-12 md:h-14 lg:h-16 object-contain mix-blend-multiply scale-205" />
+          <img src={p6} alt="Partner 7" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-125" />
           <img src={p7} alt="Partner 8" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
         </div>
       </section>
