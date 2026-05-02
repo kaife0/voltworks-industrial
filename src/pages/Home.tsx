@@ -49,9 +49,9 @@ export default function Home() {
               Experience the future of EV design. Our software-defined powertrain kits empower you to build smarter, connected electric vehicles. Start your revolution today.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-[#002f6c] text-white font-sans text-[10px] md:text-xs font-bold px-8 py-3 rounded-full hover:bg-[hover:bg-[#00429c]] transition-all border border-[#004f98] uppercase tracking-widest shadow-lg shadow-blue-900/20">
+              <Link to="/contact" className="bg-[#002f6c] text-white font-sans text-[10px] md:text-xs font-bold px-8 py-3 rounded-full hover:bg-[#00429c] transition-all border border-[#004f98] uppercase tracking-widest shadow-lg shadow-blue-900/20 inline-block text-center">
                 GET A DEMO
-              </button>
+              </Link>
             </div>
           </motion.div>
 
