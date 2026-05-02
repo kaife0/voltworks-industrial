@@ -1,50 +1,113 @@
+import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Terminal, Phone, Mail, CheckCircle } from 'lucide-react';
+import { Terminal, Phone, Mail, CheckCircle, PlaySquare } from 'lucide-react';
+import homeVid from '../public/home-vid.mp4';
 // I'll create a simple icon mapper or just use the icons directly
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    videoRef.current?.play();
+  };
+  const handleMouseLeave = () => {
+    videoRef.current?.pause();
+  };
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#040a1e]">
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] md:h-[870px] bg-slate-900 overflow-hidden flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover opacity-60"
-            alt="Industrial motor assembly"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKZwW-IE6GkdJcXjxCwK2CLxSVHQnHCZPH5h1RaIWqclgdyQqjON2nUxbcu8GUzNDED-mcIXEWcrM7ccbs6YrzchiMTVfYpExAOlVZs0K5KDxDp_bwUVe6n0jfapVkfXWuaK6tXvB-Y9tw_9TL4tgcBMBT3F3djxXa1BJTMGJQRndWGk0TghpsA9yJ8XHYVfJIjfMT-5hsxjdA1WOiKCbagV89cq8DC9Uqt3nMEgLjf-9wKfZ0XwjoOzfIYkUlc3x0y6PmUsSHgbM"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent"></div>
-        </div>
-        <div className="relative z-10 max-w-360 mx-auto px-6 md:px-16 w-full">
+      <section className="relative w-full min-h-[90vh] md:min-h-[850px] bg-[#040a1e] overflow-hidden flex flex-col justify-center pt-24 pb-16">
+        <div className="relative z-10 max-w-360 mx-auto px-6 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-2xl text-left"
           >
-            <span className="bg-white/10 backdrop-blur-sm text-primary-light font-headline text-[10px] md:text-xs font-bold px-4 py-1 inline-block mb-6 tracking-widest uppercase">
-              ESTABLISHED 1994
-            </span>
-            <h1 className="font-headline text-3xl md:text-5xl lg:text-7xl text-white mb-6 uppercase leading-tight">
-              Powering the Next <br className="hidden md:block" /> Generation of Industry
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-white mb-6 font-bold leading-tight tracking-tight">
+              Enabling smart and connected electric vehicles through software defined powertrain kits
             </h1>
-            <p className="font-body text-base md:text-lg text-slate-200 mb-10 max-w-xl">
-              High-performance motor systems and advanced controllers engineered for maximum efficiency, durability, and precision control in demanding industrial environments.
+            <p className="font-body text-sm md:text-base lg:text-lg text-slate-300 mb-10 max-w-xl leading-relaxed">
+              Experience the future of EV design. Our software-defined powertrain kits empower you to build smarter, connected electric vehicles. Start your revolution today.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-primary text-white font-headline text-xs font-bold px-8 py-4 hover:bg-primary-light transition-all uppercase tracking-widest">
-                Explore Product Line
-              </button>
-              <button className="border border-white text-white font-headline text-xs font-bold px-8 py-4 hover:bg-white hover:text-slate-900 transition-all uppercase tracking-widest">
-                Technical Specs
+              <button className="bg-[#002f6c] text-white font-sans text-[10px] md:text-xs font-bold px-8 py-3 rounded-full hover:bg-[hover:bg-[#00429c]] transition-all border border-[#004f98] uppercase tracking-widest shadow-lg shadow-blue-900/20">
+                GET A DEMO
               </button>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative group w-full max-w-[600px] mx-auto aspect-video md:aspect-[4/3] bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Play icon hint */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 group-hover:opacity-0 transition-opacity duration-300">
+               <div className="bg-black/40 rounded-full p-4 backdrop-blur-sm">
+                 <PlaySquare className="text-white" size={32} />
+               </div>
+            </div>
+            {/* The Video (Shows first frame by default, plays on hover) */}
+            <video
+              ref={videoRef}
+              src={homeVid}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="absolute inset-0 w-full h-full object-cover z-0 bg-slate-900"
+            />
+          </motion.div>
+        </div>
+
+        {/* Trusted & Supported By Section */}
+        <div className="w-full max-w-360 mx-auto px-6 md:px-16 mt-24 md:mt-32 pb-8 border-b border-slate-800/50">
+          <h3 className="text-center text-white font-headline text-lg md:text-2xl mb-12 uppercase tracking-wide font-normal">
+            Trusted & Supported By
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-24 opacity-90">
+            {/* ST life.augmented */}
+            <div className="flex flex-col items-center">
+              <span className="text-[#39b4e6] text-4xl md:text-5xl font-bold tracking-tighter italic">ST</span>
+              <span className="text-[#39b4e6] font-sans text-[8px] md:text-[10px] mt-1 font-light tracking-wide">life.augmented</span>
+            </div>
+            
+            {/* IIT Kanpur / SIIC */}
+            <div className="flex items-center gap-3 text-white text-left">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white flex items-center justify-center text-[10px] md:text-xs font-bold shrink-0">IITK</div>
+              <div className="text-[8px] md:text-[10px] font-bold leading-tight font-sans tracking-wide">
+                STARTUP<br />
+                INCUBATION AND<br />
+                INNOVATION<br />
+                CENTRE<br />
+                IIT KANPUR
+              </div>
+            </div>
+
+            {/* IIT Indore ace Foundation */}
+            <div className="flex items-center gap-3 text-white text-left">
+              <div className="text-[#e22d4c] font-bold text-3xl md:text-4xl leading-none italic pr-1">ace</div>
+              <div className="text-[8px] md:text-[10px] font-bold leading-tight font-sans tracking-wide">
+                IIT INDORE<br />
+                Foundation
+              </div>
+            </div>
+
+            {/* Citibank */}
+            <div className="flex items-center font-sans text-2xl md:text-3xl font-medium tracking-tight text-[#2c82c9]">
+              citi<span className="font-light text-[#294c73]">bank</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Mission & Purpose Section */}
-      <section className="py-24 md:py-32 px-6 md:px-16 max-w-360 mx-auto" id="about">
+      <section className="bg-white py-24 md:py-32 px-6 md:px-16 max-w-360 mx-auto" id="about">
         <div className="grid grid-cols-12 gap-8 md:gap-16">
           <div className="col-span-12 lg:col-span-5">
             <span className="font-headline text-primary text-xs font-bold mb-4 block tracking-widest uppercase">
