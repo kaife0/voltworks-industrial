@@ -1,7 +1,5 @@
-﻿import { useRef } from 'react';
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { PlaySquare } from 'lucide-react';
 import homeVid from '../public/home-vid.mp4';
 import top1 from '../public/top1.png';
 import top2 from '../public/top2.png';
@@ -22,31 +20,35 @@ import p7 from '../public/image (6).png';
 // I'll create a simple icon mapper or just use the icons directly
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleMouseEnter = () => {
-    videoRef.current?.play();
-  };
-  const handleMouseLeave = () => {
-    videoRef.current?.pause();
-  };
-
   return (
     <div className="flex flex-col bg-[#040a1e]">
-      {/* Hero Section */}
+      {/* Hero Section (video background with overlay text) */}
       <section className="relative w-full bg-[#040a1e] overflow-hidden flex flex-col justify-center pt-16 md:pt-24 lg:pt-32 pb-0">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+        {/* Background video */}
+        <video
+          src={homeVid}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        {/* dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-16 w-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl text-left"
+            className="max-w-2xl text-left py-20"
           >
             <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6 font-bold leading-tight tracking-tight">
-              Enabling smart and connected electric vehicles through software defined powertrain kits
+              Enabling smart and connected electric vehicles through software-defined powertrain kits
             </h1>
-            <p className="font-body text-sm md:text-base lg:text-lg text-slate-300 mb-10 max-w-xl leading-relaxed">
-              Experience the future of EV design. Our software-defined powertrain kits empower you to build smarter, connected electric vehicles. Start your revolution today.
+            <p className="font-body text-sm md:text-base lg:text-lg text-slate-200 mb-10 max-w-xl leading-relaxed">
+              Build smarter, connected EVs with our software-defined powertrain kits.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact" className="bg-[#002f6c] text-white font-sans text-[10px] md:text-xs font-bold px-8 py-3 rounded-full hover:bg-[#00429c] transition-all border border-[#004f98] uppercase tracking-widest shadow-lg shadow-blue-900/20 inline-block text-center">
@@ -54,36 +56,14 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative group w-full max-w-150 mx-auto aspect-video md:aspect-4/3 bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer border border-slate-200 mt-8 md:mt-0"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Play icon hint */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 group-hover:opacity-0 transition-opacity duration-300">
-               <div className="bg-black/40 rounded-full p-4 backdrop-blur-sm">
-                 <PlaySquare className="text-white" size={32} />
-               </div>
-            </div>
-            {/* The Video (Shows first frame by default, plays on hover) */}
-            <video
-              ref={videoRef}
-              src={homeVid}
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              className="absolute inset-0 w-full h-full object-cover z-0 bg-slate-900"
-            />
-          </motion.div>
         </div>
 
-        {/* Trusted & Supported By Section */}
-        <div className="w-full max-w-350 mx-auto px-4 md:px-12 lg:px-20 mt-12 md:mt-24 pb-8 md:pb-12 border-b border-slate-800/50">
+        
+      </section>
+
+      {/* Trusted & Supported By Section (moved below hero) */}
+      <section className="w-full bg-[#040a1e]">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 mt-8 md:mt-12 pb-8 md:pb-12 border-b border-slate-800/50">
           <h3 className="text-center text-white font-headline text-base md:text-lg lg:text-xl mb-8 md:mb-14 uppercase tracking-wide font-normal">
             Trusted & Supported By
           </h3>
@@ -132,10 +112,10 @@ export default function Home() {
           <img src={top1} alt="Partner 1" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p1} alt="Partner 2" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p2} alt="Partner 3" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
-          <img src={p3} alt="Partner 4" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-125" />
+          <img src={p3} alt="Partner 4" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-165" />
           <img src={p4} alt="Partner 5" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
           <img src={p5} alt="Partner 6" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
-          <img src={p6} alt="Partner 7" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-125" />
+          <img src={p6} alt="Partner 7" className="h-10 md:h-12 lg:h-14 object-contain mix-blend-multiply md:scale-110 lg:scale-215" />
           <img src={p7} alt="Partner 8" className="h-8 md:h-10 lg:h-12 object-contain mix-blend-multiply" />
         </div>
       </section>

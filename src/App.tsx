@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import About from './pages/About';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Blogs from './pages/Blogs';
@@ -44,6 +45,19 @@ function AnimatedRoutes() {
                 transition={{ duration: 0.4 }}
               >
                 <Products />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <About />
               </motion.div>
             }
           />
