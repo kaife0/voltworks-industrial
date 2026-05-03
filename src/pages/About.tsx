@@ -1,5 +1,8 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import CEO from '../public/CEO.png';
+import CBO from '../public/CBO.png';
+import CTO from '../public/CTO.png';
 
 export default function About() {
   return (
@@ -11,7 +14,7 @@ export default function About() {
       className=""
     >
       {/* Hero Section */}
-      <section className="relative flex items-center overflow-hidden h-[500px]">
+      <section className="relative flex items-center overflow-hidden min-h-[420px] md:h-[500px]">
         <div className="absolute inset-0 z-0">
           <img
             className="w-full h-full object-cover grayscale"
@@ -22,8 +25,8 @@ export default function About() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-16 w-full">
-          <div className="max-w-3xl text-white py-12">
+        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-16 w-full">
+          <div className="max-w-3xl text-white py-10 md:py-12">
             <span className="font-label-caps text-label-caps text-primary mb-4 block">PRECISION ENGINEERING SINCE 1994</span>
             <h1 className="font-headline-xl text-white mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[3.5rem] leading-tight font-bold">ELECTRIFYING INNOVATION</h1>
             <p className="font-body-lg text-body-lg text-white/90 leading-relaxed">
@@ -37,44 +40,44 @@ export default function About() {
       </section>
 
       {/* The Journey */}
-      <section className="py-24 bg-surface-container-lowest">
-        <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="flex justify-between items-end mb-20">
+      <section className="py-16 md:py-24 bg-surface-container-lowest">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-16">
+          <div className="flex flex-col gap-3 md:flex-row md:justify-between md:items-end mb-12 md:mb-20">
             <h2 className="font-headline-lg text-headline-lg">Our Journey</h2>
-            <div className="h-px flex-1 mx-12 mb-3 bg-outline-variant" />
+            <div className="hidden md:block h-px flex-1 mx-12 mb-3 bg-outline-variant" />
             <span className="font-label-caps text-label-caps text-outline">EVOLUTION &amp; MILESTONES</span>
           </div>
 
           <div className="relative">
-            <div className="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -translate-y-1/2" />
-            <div className="grid grid-cols-4 gap-8 relative z-10">
+            <div className="absolute top-1/2 left-0 hidden lg:block w-full h-[2px] bg-outline-variant -translate-y-1/2" />
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
               <div className="group">
-                <div className="bg-background p-8 border border-outline-variant hover:border-primary transition-colors mb-12 relative">
+                <div className="bg-background p-6 md:p-8 border border-outline-variant hover:border-primary transition-colors mb-0 lg:mb-12 relative">
                   <span className="font-headline-md text-headline-md text-primary mb-4 block">2018</span>
                   <p className="font-body-md text-body-md text-on-surface-variant">Built India’s most energy-efficient concept vehicle, showcasing extreme efficiency and lightweight design.</p>
-                  <div className="absolute -bottom-[54px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
+                  <div className="absolute -bottom-[54px] left-1/2 -translate-x-1/2 hidden lg:block w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
                 </div>
               </div>
 
-              <div className="group mt-24">
-                <div className="absolute -top-[54px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
-                <div className="bg-background p-8 border border-outline-variant hover:border-primary transition-colors relative">
+              <div className="group mt-0 lg:mt-24">
+                <div className="absolute -top-[54px] left-1/2 -translate-x-1/2 hidden lg:block w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
+                <div className="bg-background p-6 md:p-8 border border-outline-variant hover:border-primary transition-colors relative">
                   <span className="font-headline-md text-headline-md text-primary mb-4 block">2019</span>
                   <p className="font-body-md text-body-md text-on-surface-variant">Developed an autonomous concept vehicle to advance and validate next-generation driver-assist technologies.</p>
                 </div>
               </div>
 
               <div className="group">
-                <div className="bg-background p-8 border border-outline-variant hover:border-primary transition-colors mb-12 relative">
+                <div className="bg-background p-6 md:p-8 border border-outline-variant hover:border-primary transition-colors mb-0 lg:mb-12 relative">
                   <span className="font-headline-md text-headline-md text-primary mb-4 block">2021</span>
                   <p className="font-body-md text-body-md text-on-surface-variant">Responded to the COVID crisis by designing and deploying modular medical oxygen plants for emergency relief.</p>
-                  <div className="absolute -bottom-[54px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
+                  <div className="absolute -bottom-[54px] left-1/2 -translate-x-1/2 hidden lg:block w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
                 </div>
               </div>
 
-              <div className="group mt-24">
-                <div className="absolute -top-[54px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
-                <div className="bg-primary text-white p-8 border border-primary relative shadow-lg">
+              <div className="group mt-0 lg:mt-24">
+                <div className="absolute -top-[54px] left-1/2 -translate-x-1/2 hidden lg:block w-3 h-3 bg-primary group-hover:scale-150 transition-transform" />
+                <div className="bg-primary text-white p-6 md:p-8 border border-primary relative shadow-lg">
                   <span className="font-headline-md text-headline-md text-on-primary mb-4 block">2023</span>
                   <p className="font-body-md text-body-md text-white/90">Founded VoltWorks — consolidating decades of engineering and product expertise into a precision industrial brand.</p>
                 </div>
@@ -85,16 +88,16 @@ export default function About() {
       </section>
 
       {/* Core Principles */}
-      <section className="py-24 bg-surface-bright">
-        <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="mb-16">
+      <section className="py-16 md:py-24 bg-surface-bright">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-16">
+          <div className="mb-12 md:mb-16">
             <h2 className="font-headline-lg text-headline-lg mb-4">Core Principles</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Our values aren't just words on a wall; they are the technical specifications for how we conduct business and engineering.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="bg-white border border-outline-variant p-10 hover:border-primary transition-all group overflow-hidden">
-              <span className="inline-flex items-center justify-center w-14 h-14 text-3xl text-primary mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="bg-white border border-outline-variant p-6 md:p-10 hover:border-primary transition-all group overflow-hidden">
+              <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 text-3xl text-primary mb-5 md:mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7">
                   <path fillRule="evenodd" d="M11.983 2.25c.47 0 .85.38.85.85v1.07a6.51 6.51 0 0 1 1.45.42l.76-.76a.85.85 0 0 1 1.204 0l.602.602a.85.85 0 0 1 0 1.203l-.756.756c.135.452.227.922.27 1.396h1.098c.47 0 .85.38.85.85v.85c0 .47-.38.85-.85.85h-1.096a6.68 6.68 0 0 1-.27 1.396l.756.756a.85.85 0 0 1 0 1.204l-.602.602a.85.85 0 0 1-1.204 0l-.76-.76c-.45.172-.914.304-1.387.396v1.074c0 .47-.38.85-.85.85h-.85a.85.85 0 0 1-.85-.85v-1.074a6.68 6.68 0 0 1-1.397-.396l-.76.76a.85.85 0 0 1-1.203 0l-.603-.602a.85.85 0 0 1 0-1.204l.756-.756a6.68 6.68 0 0 1-.27-1.396H2.85A.85.85 0 0 1 2 11.983v-.85c0-.47.38-.85.85-.85h1.097c.043-.474.135-.944.27-1.396l-.756-.756a.85.85 0 0 1 0-1.203l.602-.602a.85.85 0 0 1 1.204 0l.76.76c.473-.092.937-.224 1.387-.396V3.1c0-.47.38-.85.85-.85h.85zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" clipRule="evenodd" />
                 </svg>
@@ -103,8 +106,8 @@ export default function About() {
               <p className="font-body-md text-body-md text-on-surface-variant">End-to-end delivery from concept and engineering to on-site commissioning — optimizing efficiency, safety, and lifecycle performance.</p>
             </div>
 
-            <div className="bg-white border border-outline-variant p-10 hover:border-primary transition-all group overflow-hidden">
-              <span className="inline-flex items-center justify-center w-14 h-14 text-3xl text-primary mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
+            <div className="bg-white border border-outline-variant p-6 md:p-10 hover:border-primary transition-all group overflow-hidden">
+              <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 text-3xl text-primary mb-5 md:mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
                   <path d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-8 0c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C13 14.17 8.33 13 8 13zm8 0c-.29 0-1.82.15-2.88.78.47.57.88 1.25 1.17 2.03C15.68 16 17.39 15 18 15c1.66 0 3 1.34 3 3v1h-3.5c-1.93 0-3.5-1.57-3.5-3.5 0-1.38.83-2.56 2-3.05z" />
                 </svg>
@@ -113,8 +116,8 @@ export default function About() {
               <p className="font-body-md text-body-md text-on-surface-variant">Cross-disciplinary collaboration focused on practical outcomes — fast iteration, clear ownership, and aligned objectives.</p>
             </div>
 
-            <div className="bg-white border border-outline-variant p-10 hover:border-primary transition-all group overflow-hidden">
-              <span className="inline-flex items-center justify-center w-14 h-14 text-3xl text-primary mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
+            <div className="bg-white border border-outline-variant p-6 md:p-10 hover:border-primary transition-all group overflow-hidden">
+              <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 text-3xl text-primary mb-5 md:mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7">
                   <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
                 </svg>
@@ -123,8 +126,8 @@ export default function About() {
               <p className="font-body-md text-body-md text-on-surface-variant">We pursue practical breakthroughs — improving performance, lowering energy use, and making systems smarter and safer.</p>
             </div>
 
-            <div className="bg-white border border-outline-variant p-10 hover:border-primary transition-all group overflow-hidden">
-              <span className="inline-flex items-center justify-center w-14 h-14 text-3xl text-primary mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
+            <div className="bg-white border border-outline-variant p-6 md:p-10 hover:border-primary transition-all group overflow-hidden">
+              <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 text-3xl text-primary mb-5 md:mb-6 bg-primary/5 rounded-md group-hover:scale-105 transition-transform" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7">
                   <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM11 12.13L3.21 8 11 4.87 18.79 8 11 12.13z" />
                   <path d="M11 13.75V21h2v-7.25l-1 .55-1-.55z" />
@@ -138,39 +141,42 @@ export default function About() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24">
-        <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="flex items-center gap-8 mb-16">
+      <section className="py-16 md:py-24">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-16">
+          <div className="flex items-center gap-6 md:gap-8 mb-10 md:mb-16">
             <h2 className="font-headline-lg text-headline-lg whitespace-nowrap">The Leadership</h2>
             <div className="h-px w-full bg-outline-variant" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="group">
-              <div className="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-6">
-                <img className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFiTT9iPhYG_Z2Dwb-qj7UtcoGrwNjGBYVF6sjBnRQ8ih5HhTIi99KGHx8_89iqZxVmWt-lampEe1GefNZ7jR9kWmJ-GDl92NWmYCJnecLhf_Uwvf7MxAXtdNYcgXXqPKuX_7rSzklsNJ8xhNXAgkye21JVBHZ9VPofd6ShNsZHaU8I-dt0S_1YwvbYvxL71If8IkhEmPno4hxVQbbRjTpvtf8ADiDDPt4MogoIEME-5zldVqePap3HMRSkQq4wA6cw3FtqzkQFxo" alt="Marcus Sterling" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+            <div className="group flex justify-center text-center">
+              <div>
+                <div className="aspect-[4/5] w-44 sm:w-48 lg:w-52 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-5 md:mb-6 mx-auto">
+                  <img className="w-full h-full object-cover scale-100 group-hover:scale-100 transition-transform duration-700" src={CEO} alt="CEO" />
+                </div>
+                <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF EXECUTIVE OFFICER</span>
+                <h4 className="font-headline-md text-headline-md">Himanshu Sahu</h4>
               </div>
-              <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF EXECUTIVE OFFICER</span>
-              <h4 className="font-headline-md text-headline-md">Marcus Sterling</h4>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2">Leading the strategic vision and global expansion of Voltworks Precision Engineering.</p>
             </div>
 
-            <div className="group">
-              <div className="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-6">
-                <img className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgraYaRgLAjz_XsBT0rW6BQrqw6oG04lrcKzh8Fz-oXisY5pSZh9sdDakgHA9TgDfWyV84FjJl83c6C9Auc0rB-Q2GY0FV77p6C0kgrRyRFG1eI2OuFKuOxVWbiYLtS9YkyfWhI8lZvA5nkQrz_9xThv6FbsNeruJ9DcamF13FsXNdrbQFJTe5rXNpa_AGP4q3bDSBvHVqlxF4prEOQKAVk0sgQaUho8FF7dAzH01ezyBuJIslCLRpV-lZ8-5N5IpPrunvYpxu5t4" alt="Elena Rodriguez" />
+            <div className="group flex justify-center text-center">
+              <div>
+                <div className="aspect-[4/5] w-40 sm:w-44 lg:w-48 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-5 md:mb-6 mx-auto">
+                  <img className="w-full h-full object-cover scale-100 group-hover:scale-100 transition-transform duration-700" src={CBO} alt="CBO" />
+                </div>
+                <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF BUSINESS OFFICER</span>
+                <h4 className="font-headline-md text-headline-md">Devendra Chaudhary</h4>
               </div>
-              <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF BUSINESS OFFICER</span>
-              <h4 className="font-headline-md text-headline-md">Elena Rodriguez</h4>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2">Orchestrating commercial partnerships and sustainable growth initiatives across five continents.</p>
             </div>
 
-            <div className="group">
-              <div className="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-6">
-                <img className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Jhf4jbdlXG5Ic6n0dun-1neNYxVPy8jdlRomq_NgFYV8Z0I7fLGQs9XJ1YDCeLYhuRcxdEg2_FqrqT3ZTc7TRLs4Zk8XHSykAUz0t4ASB12MuOtKQkEMHhUsUv54zDnzW3AOxP6AAgKPNfgmJCneMFdq9NI74KnECJR9Dxn3nq5UYWIwDOLO4ucrqi-5WTL24SgAb0zfTGxxiX2-74M4nX4dMeI_kLnhr3DL4ePZfvKve7MNjbj76O27OipS1qW8fdifMS0rQ9U" alt="David Chen" />
+            <div className="group flex justify-center text-center">
+              <div>
+                <div className="aspect-[4/5] w-40 sm:w-44 lg:w-48 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 mb-5 md:mb-6 mx-auto">
+                  <img className="w-full h-full object-cover scale-100 group-hover:scale-100 transition-transform duration-700" src={CTO} alt="CTO" />
+                </div>
+                <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF TECHNOLOGY OFFICER</span>
+                <h4 className="font-headline-md text-headline-md">Rishabh Singh</h4>
               </div>
-              <span className="font-label-caps text-label-caps text-primary mb-2 block">CHIEF TECHNOLOGY OFFICER</span>
-              <h4 className="font-headline-md text-headline-md">David Chen, PhD</h4>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2">Pioneering the next generation of industrial electrical systems and intelligent grid solutions.</p>
             </div>
           </div>
         </div>
