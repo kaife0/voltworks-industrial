@@ -1,94 +1,47 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Filter, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import productsData from '../../data/voltworks_products.json';
 
-const products = [
-  {
-    id: 'v-800',
-    name: 'V-800 High Torque',
-    description: 'Advanced 3-phase induction motor designed for heavy mining operations and material handling.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBw1TIrb68bPfuXygtktvyeFcK41L67TatHkjFl0qHIH617hWce1_jPCabH_j7eE7LbYvJeUtI6M88ZWkNceYR4RQwckfXbNQvKqDWuuzmDT7U0QCh1PKHBKShzBwm5nlpV0er5iajdu8YOUndW1eCrNyToMCq22twzOt_tj05TI6CD7CDvkQ8jkIKed1Cb2RFB8118On8jlkP-1Te0CifkArYoY8FcyDwvjfEAJabXJNj9yLPsN4rURZAWDdS0DRbk9DxaSv3R5Ng',
-    tag: 'NEW SERIES',
-    category: 'Motors',
-    applications: ['Heavy loader'],
-    specs: [
-      { label: 'Voltage', value: '480V AC' },
-      { label: 'Power', value: '150 kW' }
-    ]
-  },
-  {
-    id: 'nexus-vfd',
-    name: 'Nexus VFD Controller',
-    description: 'Smart frequency control with integrated IoT diagnostics for predictive maintenance cycles.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAM0AghVwWziF4q__vIA2YP5CCoc_ZDCOlKuDF-STnMbykF67Zt3asuN-M5EQHVL0975TewlUCET8BkjnN19UB-IN7fpE_hnqGG7vR3XVFsSbWuO9mUyJZpGMD27cXWmdOzm6SRkXxluzWK6D8bo3jSDxOlctL8RS3_eHk1U5n5wMro4mi0G8f4rLWZle2N9OOr-g2WIg3i9O0R8EC4h0IKaENwiHTmihJfKQdYstMJVCr1eSwopc5FhlKOgcMG0RdmWESHHV5lb2U',
-    tag: 'BESTSELLER',
-    tagColor: 'bg-primary-light',
-    category: 'Controllers',
-    applications: ['passenger', 'Ev bikes'],
-    specs: [
-      { label: 'Phase', value: 'Triple / Single' },
-      { label: 'IP Rating', value: 'IP67 Waterproof' }
-    ]
-  },
-  {
-    id: 'titan-x-gen',
-    name: 'Titan X-Gen Inverter',
-    description: 'High-efficiency DC-AC conversion module optimized for grid-scale solar array installations.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9EvmcQ2b0mVlcwjfva04PrLMcnK-gefCc-Ef5EMLGCFPHZfIRyutXbU0eN5FBeZJOLfEVhJMcXIRj5RvV0apu9pKte7HX7W0SyDn9Gt2oLPV7pRxOZrpTaItFT9gAI8GxuGpnao01RFIQZ9R0Z9MPYM66kgxM_76J1m_xWmT4lMFlNE6cFIOD6IIJrdN9bX04FUL1g3bDVfgV9ADYU4-hMAfY1hgr0UF_rRmZdnfJuYnND96BKnd3Q5dpFL6DmmiqqyZePDERDBw',
-    category: 'Motors',
-    applications: ['Heavy loader'],
-    specs: [
-      { label: 'Efficiency', value: '98.4% Peak' },
-      { label: 'Output', value: '500 kW Max' }
-    ]
-  },
-  {
-    id: 'core-s',
-    name: 'Core-S Synchronous',
-    description: 'Compact synchronous motor with permanent magnet technology for robotics and automation.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCb7L5LQzkZ6tTsZa30PTzlt35FBhbCrkj1FkLuYh1L8g4ae2QTPVl-oJ1NcF0b__EJ8vEXC7mb3omMX6FSBghwjhCLGwjgF30s87DBVoHK5OTGbBwF55CcWh-XCabTXNz5kLPosJgGDWkTKOkEveH6VQfvBFLiQ62dowAuH7FTDJ46MOvTujQ77AjAYPx4TdZeaWoHqu0Vgbv0jF52A_gkZxr0Z-qFAW6gS3-qK4vuerKN4NzXCy3VZIBbnThlQFztX2vMWhUk3qU',
-    category: 'PMSM',
-    applications: ['Ev bikes', 'passenger'],
-    specs: [
-      { label: 'RPM Range', value: '0 - 3000' },
-      { label: 'Precision', value: '0.01 Degree' }
-    ]
-  },
-  {
-    id: 'sentinel-circuit',
-    name: 'Sentinel Circuit Pro',
-    description: 'Main distribution protection units with digital arc flash detection and isolation.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2YBiv2YwJ9m2lYiMQ9XrFVWcRcO5BQKXWsFE6TMwMYFwoTw4iYivur3ebs4pJj5S8rPNDaEws79DHFr06E9t_NokK14_jqC0hhlNgmekPspsgF4dTA-iUPWCAKAnkoESgNvUl_pRJ9TX2wxVGZaOvePc6Ekcb6bVf8-aWRaXaId2a5Ub90Mk-V9qLlzPJoELXcFO-KYh-YBo-QsmvBjyA60i1ki0aqEI9_SJPk0lCOImD5p-ln_X66VSFkW5wKFDBX28NfGXQ-HA',
-    tag: 'LIMIT-EDITION',
-    tagColor: 'bg-red-600',
-    category: 'Controllers',
-    applications: ['Heavy loader'],
-    specs: [
-      { label: 'Current', value: 'Up to 4000A' },
-      { label: 'Standards', value: 'IEC / UL / ANSI' }
-    ]
-  },
-  {
-    id: 'volt-cell-bess',
-    name: 'Volt-Cell BESS',
-    description: 'Modular Battery Energy Storage System for peak-shaving and backup power redundancy.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgh1HRQeZRK9cLin4c8WUtVz2TsMpz_ywdKaC4oqgXTE_gF0hQrkIM8SHLPCU2U1UcMAPKhO6w0hdzg_3S_anIDYHDPi2zDgNDmXj8fjAm9QKKDKYNCgahC-UKXaWOsnZ9o7em7NsfYiDgj5V6Gj8gt6ypO8OzMHzlhxYnieD_DlR1A8_vicqoFR9ZRLz118a2CylqOboUJ5aUsw1T9rbQ1lfnbQ0Y1wYoDp3vowKkiJPXUALPQR-lubCedMc35qpBkCXnlQBt19A',
-    category: 'BLDC',
-    applications: ['Ev bikes', 'passenger'],
-    specs: [
-      { label: 'Capacity', value: '1.2 MWh Unit' },
-      { label: 'Cycle Life', value: '8000+ Cycles' }
-    ]
-  }
-];
+const products = productsData as any[];
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState('All Products');
   const [selectedApplications, setSelectedApplications] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 6;
 
-  // When you switch to fetching from products_data.json, you can replace the hardcoded `products` array
-  // above with data from your fetch call (e.g. stored in a `productList` state).
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, selectedApplications]);
+
+  // Calculate dynamic categories with counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { 'All Products': products.length };
+    products.forEach(p => {
+      if (p.category) {
+        counts[p.category] = (counts[p.category] || 0) + 1;
+      }
+    });
+    return [
+      { name: 'All Products', count: counts['All Products'] },
+      ...Object.entries(counts)
+        .filter(([name]) => name !== 'All Products')
+        .map(([name, count]) => ({ name, count }))
+    ];
+  }, []);
+
+  // Calculate dynamic applications
+  const applicationList = useMemo(() => {
+    const apps = new Set<string>();
+    products.forEach(p => {
+      p.applications?.forEach((app: string) => apps.add(app));
+    });
+    return Array.from(apps).map(name => ({ name }));
+  }, []);
+
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesCategory = selectedCategory === 'All Products' || product.category === selectedCategory;
@@ -97,6 +50,9 @@ export default function Products() {
       return matchesCategory && matchesApplication;
     });
   }, [selectedCategory, selectedApplications]);
+
+  const totalPages = Math.ceil(filteredProducts.length / pageSize);
+  const paginatedProducts = filteredProducts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   const toggleApplication = (appName: string) => {
     setSelectedApplications(prev => 
@@ -131,13 +87,7 @@ export default function Products() {
                 Category
               </h3>
               <ul className="space-y-3">
-                {[
-                  { name: 'All Products', count: 42 },
-                  { name: 'Motors', count: 18 },
-                  { name: 'Controllers', count: 12 },
-                  { name: 'PMSM', count: 12 },
-                  { name: 'BLDC', count: 8 }
-                ].map((cat) => {
+                {categoryCounts.map((cat) => {
                   const isActive = selectedCategory === cat.name;
                   return (
                     <li 
@@ -149,7 +99,7 @@ export default function Products() {
                         {cat.name}
                       </span>
                       <span className={`text-[10px] font-headline font-bold px-2 py-0.5 ${isActive ? 'bg-primary text-white' : 'bg-slate-100 text-slate-500'}`}>
-                        {cat.count} // You can update count dynamically later
+                        {cat.count}
                       </span>
                     </li>
                   );
@@ -163,11 +113,7 @@ export default function Products() {
                 Application
               </h3>
               <div className="flex flex-wrap gap-2">
-                {[
-                  { name: 'Ev bikes' },
-                  { name: 'Heavy loader' },
-                  { name: 'passenger' }
-                ].map((app) => {
+                {applicationList.map((app) => {
                   const isActive = selectedApplications.includes(app.name);
                   return (
                     <span
@@ -219,7 +165,7 @@ export default function Products() {
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {filteredProducts.map((product, idx) => (
+              {paginatedProducts.map((product, idx) => (
                 <motion.div
                   key={`${product.id}-${idx}`}
                   initial={{ opacity: 0, y: 20 }}
@@ -232,7 +178,7 @@ export default function Products() {
                     <img
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
                       alt={product.name}
-                      src={product.image}
+                      src={product.image || 'https://placehold.co/400x400/eeeeee/999999?text=VoltWorks'}
                     />
                     {product.tag && (
                       <div className={`absolute top-2 left-2 ${product.tagColor || 'bg-navy'} text-white px-2 py-1 text-[8px] font-headline font-bold tracking-widest uppercase`}>
@@ -246,16 +192,8 @@ export default function Products() {
                   <p className="text-slate-500 font-body text-sm mb-6 flex-grow line-clamp-2">
                     {product.description}
                   </p>
-                  <div className="space-y-3 mb-6">
-                    {product.specs.map(spec => (
-                      <div key={spec.label} className="flex justify-between items-center border-b border-slate-50 pb-2">
-                        <span className="font-headline text-[9px] text-slate-400 uppercase tracking-widest">{spec.label}</span>
-                        <span className="font-headline text-xs text-charcoal font-bold">{spec.value}</span>
-                      </div>
-                    ))}
-                  </div>
                   <button className="w-full bg-navy text-white font-headline text-[10px] font-bold py-3 uppercase tracking-[0.2em] group-hover:bg-primary transition-all relative z-20">
-                    Technical Specs
+                    View Details
                   </button>
                 </motion.div>
               ))}
@@ -263,18 +201,35 @@ export default function Products() {
           )}
 
           {/* Pagination */}
-          {filteredProducts.length > 0 && (
+          {totalPages > 1 && (
             <div className="mt-16 flex justify-center items-center gap-4">
-              <button className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 hover:border-primary text-slate-400 hover:text-primary transition-colors">
+              <button 
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 hover:border-primary text-slate-400 hover:text-primary transition-colors disabled:opacity-50 disabled:hover:border-slate-200 disabled:hover:text-slate-400 disabled:cursor-not-allowed"
+              >
                 <ChevronLeft size={20} />
               </button>
-              <button className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary text-white font-headline font-bold text-xs">
-                01
-              </button>
-              <button className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 hover:border-primary text-slate-400 hover:text-primary transition-colors font-headline font-bold text-xs">
-                02
-              </button>
-              <button className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 hover:border-primary text-slate-400 hover:text-primary transition-colors">
+              
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <button 
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-headline font-bold text-xs transition-colors ${
+                    currentPage === page 
+                      ? 'bg-primary text-white' 
+                      : 'border border-slate-200 hover:border-primary text-slate-400 hover:text-primary'
+                  }`}
+                >
+                  {page.toString().padStart(2, '0')}
+                </button>
+              ))}
+
+              <button 
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 hover:border-primary text-slate-400 hover:text-primary transition-colors disabled:opacity-50 disabled:hover:border-slate-200 disabled:hover:text-slate-400 disabled:cursor-not-allowed"
+              >
                 <ChevronRight size={20} />
               </button>
             </div>
