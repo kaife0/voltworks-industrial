@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -12,6 +12,7 @@ import About from './pages/About';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Blogs from './pages/Blogs';
+import BlogDetail from './pages/BlogDetail';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 
@@ -84,6 +85,19 @@ function AnimatedRoutes() {
                 transition={{ duration: 0.4 }}
               >
                 <Blogs />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/blogs/:slug"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <BlogDetail />
               </motion.div>
             }
           />
