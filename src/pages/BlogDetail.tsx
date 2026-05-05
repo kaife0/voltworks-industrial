@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Clock, Calendar, Eye, MessageCircle, Heart, Share2, Facebook, Twitter, Linkedin, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Eye, MessageCircle, Heart, Share2, Facebook, Linkedin, ChevronRight, CheckCircle2 } from 'lucide-react';
 import blogData from '../../data/blog.json';
 
 export default function BlogDetail() {
@@ -9,6 +9,43 @@ export default function BlogDetail() {
   const navigate = useNavigate();
 
   const post = blogData.posts.find((p) => p.metadata.slug === slug);
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareTitle = post?.metadata?.title || '';
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          url: shareUrl,
+        });
+      } catch (err) {
+        console.error("Error sharing", err);
+      }
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      alert("Link copied to clipboard!");
+    }
+  };
+
+  const shareFacebook = () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const shareX = () => {
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const shareLinkedIn = () => {
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const XLogo = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -192,10 +229,10 @@ export default function BlogDetail() {
             </div>
 
             <div className="flex items-center gap-4">
-              <button className="text-slate-400 hover:text-white transition-colors"><Share2 className="w-5 h-5" /></button>
-              <button className="text-slate-400 hover:text-[#1877F2] transition-colors"><Facebook className="w-5 h-5" /></button>
-              <button className="text-slate-400 hover:text-[#1DA1F2] transition-colors"><Twitter className="w-5 h-5" /></button>
-              <button className="text-slate-400 hover:text-[#0A66C2] transition-colors"><Linkedin className="w-5 h-5" /></button>
+              <button onClick={handleShare} className="text-slate-400 hover:text-white transition-colors" title="Share"><Share2 className="w-5 h-5" /></button>
+              <button onClick={shareFacebook} className="text-slate-400 hover:text-[#1877F2] transition-colors" title="Share on Facebook"><Facebook className="w-5 h-5" /></button>
+              <button onClick={shareX} className="text-slate-400 hover:text-white transition-colors" title="Share on X (Twitter)"><XLogo className="w-4 h-4" /></button>
+              <button onClick={shareLinkedIn} className="text-slate-400 hover:text-[#0A66C2] transition-colors" title="Share on LinkedIn"><Linkedin className="w-5 h-5" /></button>
             </div>
           </div>
         </div>
