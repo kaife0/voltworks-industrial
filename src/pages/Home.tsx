@@ -1,4 +1,4 @@
-﻿import { motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import homeVid from '../public/home-vid.mp4';
 import top1 from '../public/top1.png';
@@ -63,11 +63,11 @@ export default function Home() {
 
       {/* Trusted & Supported By Section (moved below hero) */}
       <section className="w-full bg-[#040a1e]">
-        <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 mt-8 md:mt-12 pb-8 md:pb-12 border-b border-slate-800/50">
-          <h3 className="text-center text-white font-headline text-base md:text-lg lg:text-xl mb-8 md:mb-14 uppercase tracking-wide font-normal">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 mt-4 md:mt-5 pb-2 md:pb-2 border-b border-slate-800/50">
+          <h3 className="text-center text-white font-headline text-base md:text-lg lg:text-xl mb-4 md:mb-6 uppercase tracking-wide font-normal">
             Trusted & Supported By
           </h3>
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-6 md:gap-12 opacity-90 w-full">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-10 lg:gap-x-14 opacity-90 w-full">
             <img src={top1} alt="Top 1 Logo" className="w-24 md:w-32 lg:w-40 object-contain" />
             <img src={top2} alt="Top 2 Logo" className="w-40 md:w-56 lg:w-72 object-contain" />
             <img src={top3} alt="Top 3 Logo" className="w-28 md:w-40 lg:w-48 object-contain" />
