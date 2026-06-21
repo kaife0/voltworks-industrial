@@ -78,9 +78,11 @@ export default function Home() {
   const [activeMilestone, setActiveMilestone] = useState(0);
   return (
     <div className="flex flex-col bg-[#040a1e]">
-      {/* Hero Section */}
-      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center">
-        {/* Background video */}
+      {/* Hero Section — Premium Redesign */}
+      <section className="relative w-full min-h-screen bg-[#040a1e] overflow-hidden flex flex-col justify-center">
+
+        {/* === BACKGROUND LAYERS === */}
+        {/* 1. Background video */}
         <video
           src={homeVid}
           autoPlay
@@ -88,124 +90,151 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0 scale-105"
+          style={{ filter: 'brightness(0.45) saturate(0.8)' }}
         />
 
-        {/* Multi-layer overlay for premium depth */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#040a1e]/95 via-[#040a1e]/75 to-[#040a1e]/95" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#040a1e]/90 via-transparent to-[#040a1e]/60" />
+        {/* 2. Multi-layer gradient overlay for depth */}
+        <div className="absolute inset-0 z-10" style={{
+          background: 'linear-gradient(135deg, rgba(4,10,30,0.92) 0%, rgba(4,10,30,0.6) 50%, rgba(0,30,80,0.4) 100%)',
+        }} />
 
-        {/* Animated glow orbs */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)' }}
-        />
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)' }}
-        />
+        {/* 3. Bottom fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 z-10" style={{
+          background: 'linear-gradient(to bottom, transparent, #040a1e)',
+        }} />
 
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 z-10 opacity-[0.03]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+        {/* 4. Animated tech grid overlay */}
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }} />
 
-        {/* Main content */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full pt-28 pb-24 md:pt-36 md:pb-32">
-          <div className="max-w-4xl">
+        {/* 5. Radial blue glow from center-left */}
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 70% 60% at 20% 60%, rgba(37,99,235,0.15) 0%, transparent 70%)',
+        }} />
 
-            {/* Badge pill */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm"
+        {/* 6. Top-right subtle accent glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] z-10 pointer-events-none" style={{
+          background: 'radial-gradient(circle at 80% 20%, rgba(99,102,241,0.1) 0%, transparent 60%)',
+        }} />
+
+        {/* === CONTENT === */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full flex flex-col justify-center min-h-screen py-32">
+
+          {/* Animated badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6 flex items-center gap-3"
+          >
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.2em]"
+              style={{
+                background: 'rgba(37,99,235,0.15)',
+                border: '1px solid rgba(59,130,246,0.35)',
+                color: '#93c5fd',
+              }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              <span className="text-blue-300 text-xs font-bold tracking-[0.2em] uppercase">Software-Defined Powertrain Technology</span>
-            </motion.div>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse inline-block" />
+              Software-Defined EV Powertrain
+            </span>
+          </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
-            >
-              <span className="text-white">Enabling </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-300">
-                Smart & Connected
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-headline font-bold leading-[1.08] tracking-tight text-white mb-6"
+            style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)', maxWidth: '820px' }}
+          >
+            Enabling Smart &amp;{' '}
+            <span className="relative inline-block">
+              <span className="text-transparent bg-clip-text"
+                style={{ backgroundImage: 'linear-gradient(90deg, #60a5fa, #818cf8, #a78bfa)' }}>
+                Connected
               </span>
-              <br />
-              <span className="text-white">Electric Vehicles</span>
-            </motion.h1>
+            </span>{' '}
+            Electric Vehicles
+          </motion.h1>
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-slate-300 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-10"
-            >
-              Next-generation powertrain kits built on a robust software stack — with OTA updates, real-time cloud telemetry, and AI-driven performance optimization.
-            </motion.p>
+          {/* Sub-headline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="font-body text-base md:text-lg text-slate-300 mb-10 leading-relaxed"
+            style={{ maxWidth: '520px' }}
+          >
+            Our software-defined powertrain kits bring intelligence, OTA updates, and real-time cloud analytics to every EV — from prototype to mass production.
+          </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap gap-4 items-center mb-16"
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex flex-wrap gap-4 mb-16"
+          >
+            <Link
+              to="/contact"
+              className="group relative flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white rounded-full overflow-hidden transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, #1d4ed8, #4f46e5)',
+                boxShadow: '0 0 24px rgba(79,70,229,0.4), 0 4px 16px rgba(0,0,0,0.3)',
+              }}
             >
-              <Link
-                to="/contact"
-                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-full text-white text-xs font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
-                style={{ background: 'linear-gradient(135deg, #1d4ed8, #4338ca)', boxShadow: '0 0 30px rgba(59,130,246,0.35)' }}
+              <span className="relative z-10">Get a Demo</span>
+              <span className="relative z-10 transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: 'linear-gradient(135deg, #2563eb, #6366f1)' }} />
+            </Link>
+            <Link
+              to="/products"
+              className="group flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-300 rounded-full transition-all duration-300 hover:text-white"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              <span>Explore Products</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </Link>
+          </motion.div>
+
+          {/* Floating stat chips */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            className="flex flex-wrap gap-4"
+          >
+            {[
+              { value: '30+', label: 'Years of Innovation' },
+              { value: '500+', label: 'Global Deployments' },
+              { value: '12+', label: 'Countries' },
+              { value: 'OTA', label: 'Real-Time Updates' },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-5 py-3 rounded-xl"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  backdropFilter: 'blur(12px)',
+                }}
               >
-                <span className="relative z-10">Get a Demo</span>
-                <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-              <a
-                href="#about"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white text-xs font-bold uppercase tracking-widest border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/40 transition-all duration-300"
-              >
-                Learn More
-              </a>
-            </motion.div>
-
-            {/* Stats bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.55 }}
-              className="flex flex-wrap gap-8 md:gap-12 items-center"
-            >
-              {[
-                { value: '30+', label: 'Years of Innovation' },
-                { value: '500+', label: 'Global Installations' },
-                { value: '12+', label: 'Countries' },
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col gap-0.5">
-                  <span className="text-2xl md:text-3xl font-headline font-bold text-white">{stat.value}</span>
-                  <span className="text-xs text-slate-400 uppercase tracking-widest font-medium">{stat.label}</span>
-                </div>
-              ))}
-              <div className="hidden md:block h-8 w-px bg-slate-700" />
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs text-slate-400 tracking-wide">OTA Updates Active</span>
+                <span className="text-xl font-headline font-bold text-white">{stat.value}</span>
+                <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">{stat.label}</span>
               </div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
@@ -215,11 +244,11 @@ export default function Home() {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
         >
-          <span className="text-[10px] text-slate-500 uppercase tracking-[0.25em]">Scroll</span>
+          <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500 font-bold">Scroll</span>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
+            className="w-[1px] h-10 bg-gradient-to-b from-slate-500 to-transparent"
+            animate={{ scaleY: [0, 1, 0], originY: 0 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-8 bg-gradient-to-b from-slate-500 to-transparent"
           />
         </motion.div>
       </section>
