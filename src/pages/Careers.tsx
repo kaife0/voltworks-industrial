@@ -39,7 +39,7 @@ export default function Careers() {
               variants={staggerContainer}
               className="max-w-2xl"
             >
-              <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl font-headline font-bold text-navy-deep leading-[1.1] mb-6">
+              <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-navy-deep leading-[1.1] mb-6">
                 Do what you <span className="text-primary">💙</span> and help change future of mobility at <span className="text-primary">VoltWorks.</span>
               </motion.h1>
               <motion.p variants={fadeInUp} className="text-lg text-slate-600 font-body mb-8 leading-relaxed">
@@ -49,7 +49,7 @@ export default function Careers() {
                 <p className="text-sm font-semibold text-slate-800 uppercase tracking-wider mb-4">Find your next role:</p>
                 <button 
                   onClick={scrollToPositions}
-                  className="bg-navy-deep hover:bg-primary transition-colors duration-300 text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl flex items-center gap-2 group"
+                  className="bg-navy-deep hover:bg-primary transition-colors duration-300 text-white font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-xl shadow-lg hover:shadow-xl flex items-center gap-2 group"
                 >
                   See Open Positions
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -82,9 +82,9 @@ export default function Careers() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="bg-surface-low rounded-3xl p-8 lg:p-16 border border-outline-v/30 shadow-sm"
+            className="bg-surface-low rounded-3xl p-6 lg:p-16 border border-outline-v/30 shadow-sm"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
               <div className="flex flex-col justify-center">
                 <motion.h2 variants={fadeInUp} className="text-4xl font-headline font-bold text-navy-deep mb-6">
                   Life at VoltWorks
@@ -102,7 +102,7 @@ export default function Careers() {
               </div>
 
               {/* Bento Box Image Grid */}
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 grid-rows-2 gap-4 h-[500px]">
+              <motion.div variants={fadeInUp} className="grid grid-cols-2 grid-rows-2 gap-4 h-[300px] md:h-[500px]">
                 <div className="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-md">
                   <img src={life1} alt="Life at VoltWorks 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
@@ -138,7 +138,7 @@ export default function Careers() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
           >
             {[
               { icon: Activity, title: 'Work Life Balance', color: 'bg-emerald-100 text-emerald-600' },
@@ -149,12 +149,12 @@ export default function Careers() {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ y: -8 }}
-                className="bg-white rounded-3xl p-10 text-center shadow-sm border border-outline-v/20 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-3xl p-6 md:p-10 text-center shadow-sm border border-outline-v/20 hover:shadow-xl transition-all duration-300"
               >
-                <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center ${benefit.color} mb-6 shadow-inner`}>
-                  <benefit.icon className="w-10 h-10" />
+                <div className={`w-14 h-14 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center ${benefit.color} mb-4 md:mb-6 shadow-inner`}>
+                  <benefit.icon className="w-6 h-6 md:w-10 md:h-10" />
                 </div>
-                <h3 className="text-xl font-headline font-bold text-navy-deep">{benefit.title}</h3>
+                <h3 className="text-base md:text-xl font-headline font-bold text-navy-deep">{benefit.title}</h3>
               </motion.div>
             ))}
           </motion.div>
@@ -169,7 +169,7 @@ export default function Careers() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="bg-surface-low rounded-3xl p-8 lg:p-12 border border-outline-v/30 shadow-sm"
+            className="bg-surface-low rounded-3xl p-6 lg:p-12 border border-outline-v/30 shadow-sm"
           >
             <div className="mb-10">
               <motion.h2 variants={fadeInUp} className="text-4xl font-headline font-bold text-navy-deep mb-4">
@@ -185,10 +185,10 @@ export default function Careers() {
                 href="https://forms.gle/962KMM5jiy5k5nCEA" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white border border-outline-v/30 rounded-2xl p-6 flex items-center justify-between hover:shadow-md hover:border-primary/40 transition-all duration-300 cursor-pointer group w-full text-left"
+                className="bg-white border border-outline-v/30 rounded-2xl p-4 md:p-6 flex items-center justify-between hover:shadow-md hover:border-primary/40 transition-all duration-300 cursor-pointer group w-full text-left"
               >
                 <div>
-                  <h4 className="text-xl font-bold font-headline text-navy-deep mb-2 group-hover:text-primary transition-colors">
+                  <h4 className="text-lg md:text-xl font-bold font-headline text-navy-deep mb-2 group-hover:text-primary transition-colors">
                     Senior Power Electronics Engineer
                   </h4>
                   <div className="flex items-center text-slate-500 text-sm font-medium">

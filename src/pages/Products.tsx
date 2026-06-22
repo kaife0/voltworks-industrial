@@ -68,9 +68,9 @@ export default function Products() {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-6 md:px-16 py-12 min-h-screen">
+    <main className="max-w-7xl mx-auto px-6 md:px-16 py-6 md:py-12 min-h-screen">
       {/* Page Header */}
-      <div className="mb-12">
+      <div className="mb-6 md:mb-12">
         <h1 className="font-headline text-3xl md:text-5xl text-charcoal mb-2 uppercase">Industrial Solutions</h1>
         <p className="font-body text-base md:text-lg text-slate-500 max-w-2xl">
           Precision-engineered electrical components designed for maximum durability in high-demand industrial environments.
@@ -164,14 +164,14 @@ export default function Products() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8">
               {paginatedProducts.map((product, idx) => (
                 <motion.div
                   key={`${product.id}-${idx}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white border border-slate-100 p-6 group flex flex-col h-full hover:border-primary transition-all duration-300 relative"
+                  className="bg-white border border-slate-100 p-4 md:p-6 group flex flex-col h-full hover:border-primary transition-all duration-300 relative"
                 >
                   <Link to={`/products/${product.id}`} className="absolute inset-0 z-10" />
                   <div className="relative mb-6 overflow-hidden aspect-square border border-slate-50">
@@ -186,10 +186,10 @@ export default function Products() {
                       </div>
                     )}
                   </div>
-                  <h4 className="font-headline text-lg text-charcoal mb-2 group-hover:text-primary transition-colors uppercase tracking-tight">
+                  <h4 className="font-headline text-sm md:text-lg text-charcoal mb-2 group-hover:text-primary transition-colors uppercase tracking-tight">
                     {product.name}
                   </h4>
-                  <p className="text-slate-500 font-body text-sm mb-6 flex-grow line-clamp-2">
+                  <p className="text-slate-500 font-body text-xs md:text-sm mb-4 md:mb-6 flex-grow line-clamp-2">
                     {product.description}
                   </p>
                   <button className="w-full bg-navy text-white font-headline text-[10px] font-bold py-3 uppercase tracking-[0.2em] group-hover:bg-primary transition-all relative z-20">

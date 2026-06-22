@@ -77,7 +77,7 @@ const milestones = [
 export default function Home() {
   const [activeMilestone, setActiveMilestone] = useState(0);
   return (
-    <div className="flex flex-col bg-[#040a1e]">
+    <div className="flex flex-col bg-[#040a1e] overflow-x-hidden w-full">
       {/* Hero Section — Premium Redesign */}
       <section className="relative w-full min-h-screen bg-[#040a1e] overflow-hidden flex flex-col justify-center">
 
@@ -124,7 +124,7 @@ export default function Home() {
         }} />
 
         {/* === CONTENT === */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full flex flex-col justify-center min-h-screen py-32">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full flex flex-col justify-center min-h-screen pt-24 pb-16 md:py-32">
 
           {/* Animated badge */}
           <motion.div
@@ -133,7 +133,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6 flex items-center gap-3"
           >
-            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.2em]"
+            <span className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]"
               style={{
                 background: 'rgba(37,99,235,0.15)',
                 border: '1px solid rgba(59,130,246,0.35)',
@@ -183,7 +183,7 @@ export default function Home() {
           >
             <Link
               to="/contact"
-              className="group relative flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white rounded-full overflow-hidden transition-all duration-300"
+              className="group relative flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest text-white rounded-full overflow-hidden transition-all duration-300"
               style={{
                 background: 'linear-gradient(135deg, #1d4ed8, #4f46e5)',
                 boxShadow: '0 0 24px rgba(79,70,229,0.4), 0 4px 16px rgba(0,0,0,0.3)',
@@ -196,7 +196,7 @@ export default function Home() {
             </Link>
             <Link
               to="/products"
-              className="group flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-300 rounded-full transition-all duration-300 hover:text-white"
+              className="group flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-300 rounded-full transition-all duration-300 hover:text-white"
               style={{
                 background: 'rgba(255,255,255,0.05)',
                 border: '1px solid rgba(255,255,255,0.15)',
@@ -223,34 +223,21 @@ export default function Home() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 px-5 py-3 rounded-xl"
+                className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-5 md:py-3 rounded-xl"
                 style={{
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.1)',
                   backdropFilter: 'blur(12px)',
                 }}
               >
-                <span className="text-xl font-headline font-bold text-white">{stat.value}</span>
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">{stat.label}</span>
+                <span className="text-base md:text-xl font-headline font-bold text-white">{stat.value}</span>
+                <span className="text-[10px] md:text-xs text-slate-400 uppercase tracking-wider font-medium">{stat.label}</span>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        >
-          <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500 font-bold">Scroll</span>
-          <motion.div
-            className="w-[1px] h-10 bg-gradient-to-b from-slate-500 to-transparent"
-            animate={{ scaleY: [0, 1, 0], originY: 0 }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
+        {/* Scroll indicator removed */}
       </section>
 
 
@@ -270,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* Milestones Section */}
-      <section className="relative w-full bg-gradient-to-b from-[#040a1e] via-[#070d28] to-[#040a1e] py-20 md:py-32 overflow-hidden">
+      <section className="relative w-full bg-gradient-to-b from-[#040a1e] via-[#070d28] to-[#040a1e] pt-8 pb-20 md:pt-16 md:pb-32 overflow-hidden">
         {/* Ambient glow orbs */}
         <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-blue-600/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-indigo-600/5 blur-3xl pointer-events-none" />
@@ -299,7 +286,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-[2.25rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
 
             {/* Year dots row */}
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-0 mb-10">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-0 mb-8 md:mb-10">
               {milestones.map((m, i) => (
                 <motion.button
                   key={m.year}
@@ -312,7 +299,7 @@ export default function Home() {
                 >
                   {/* Dot */}
                   <div
-                    className="relative w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"
+                    className="relative w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center transition-all duration-300"
                     style={{
                       background: activeMilestone === i
                         ? `radial-gradient(circle, ${m.color}40, ${m.color}15)`
@@ -321,7 +308,7 @@ export default function Home() {
                       boxShadow: activeMilestone === i ? `0 0 18px ${m.color}60, 0 0 6px ${m.color}40` : 'none',
                     }}
                   >
-                    <span className="text-sm">{m.icon}</span>
+                    <span className="text-[10px] md:text-sm">{m.icon}</span>
                     {activeMilestone === i && (
                       <motion.span
                         layoutId="activePulse"
@@ -334,7 +321,7 @@ export default function Home() {
                   </div>
                   {/* Year label */}
                   <span
-                    className="font-headline text-xs md:text-sm font-bold tracking-widest transition-all duration-300"
+                    className="font-headline text-[10px] md:text-sm font-bold tracking-widest transition-all duration-300"
                     style={{ color: activeMilestone === i ? m.color : 'rgba(148,163,184,0.7)' }}
                   >
                     {m.year}
@@ -363,17 +350,17 @@ export default function Home() {
                   className="h-[3px] w-full"
                   style={{ background: `linear-gradient(90deg, ${milestones[activeMilestone].color}, transparent)` }}
                 />
-                <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
                   {/* Year + icon */}
                   <div className="flex flex-col gap-4">
                     <div
-                      className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl md:text-3xl"
                       style={{ background: `${milestones[activeMilestone].color}15`, border: `1.5px solid ${milestones[activeMilestone].color}30` }}
                     >
                       {milestones[activeMilestone].icon}
                     </div>
                     <div>
-                      <p className="text-5xl md:text-6xl font-headline font-bold" style={{ color: milestones[activeMilestone].color }}>
+                      <p className="text-3xl md:text-5xl lg:text-6xl font-headline font-bold" style={{ color: milestones[activeMilestone].color }}>
                         {milestones[activeMilestone].metric}
                       </p>
                       <p className="text-xs uppercase tracking-widest text-slate-500 mt-1 font-bold">
@@ -383,13 +370,13 @@ export default function Home() {
                   </div>
                   {/* Title + desc */}
                   <div className="md:col-span-2">
-                    <p className="text-xs font-bold tracking-[0.25em] uppercase mb-2" style={{ color: milestones[activeMilestone].color }}>
+                    <p className="text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase mb-2" style={{ color: milestones[activeMilestone].color }}>
                       {milestones[activeMilestone].year}
                     </p>
-                    <h3 className="font-headline text-xl md:text-3xl text-white font-bold mb-4 leading-snug">
+                    <h3 className="font-headline text-lg md:text-xl lg:text-3xl text-white font-bold mb-4 leading-snug">
                       {milestones[activeMilestone].title}
                     </h3>
-                    <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                    <p className="text-slate-400 leading-relaxed text-xs md:text-sm lg:text-base">
                       {milestones[activeMilestone].description}
                     </p>
                   </div>
@@ -433,7 +420,7 @@ export default function Home() {
       </section>
 
       {/* Unify & Partner Section */}
-      <section className="bg-white py-16 md:py-24 px-6 md:px-16 w-full text-center border-t border-slate-100">
+      <section className="bg-white py-10 md:py-24 px-6 md:px-16 w-full text-center border-t border-slate-100">
         <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
           Unify, Track & Empower: Electrify your vehicles
         </h2>
@@ -454,8 +441,8 @@ export default function Home() {
       </section>
 
       {/* Mission & Purpose Section */}
-      <section className="bg-white py-16 md:py-32 px-4 sm:px-6 md:px-16 max-w-7xl mx-auto overflow-hidden" id="about">
-        <div className="grid grid-cols-12 gap-6 md:gap-16">
+      <section className="bg-white py-10 md:py-32 px-4 sm:px-6 md:px-16 max-w-7xl mx-auto overflow-hidden" id="about">
+        <div className="grid grid-cols-12 gap-8 md:gap-16">
           <div className="col-span-12 lg:col-span-5">
             <span className="font-headline text-primary text-xs font-bold mb-4 block tracking-widest uppercase">
               OUR PURPOSE
@@ -487,25 +474,25 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-industrial-bg py-16 px-4 sm:px-6 md:px-16 overflow-hidden">
+      <section className="bg-industrial-bg py-8 md:py-16 px-4 sm:px-6 md:px-16 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="bg-white p-12 border border-outline-v/30 flex flex-col justify-between aspect-square md:aspect-auto">
-              <span className="text-5xl md:text-6xl font-headline text-primary">30+</span>
+            <div className="bg-white p-6 md:p-12 border border-outline-v/30 flex flex-col justify-between">
+              <span className="text-4xl md:text-6xl font-headline text-primary">30+</span>
               <p className="font-headline text-[10px] font-bold mt-8 tracking-widest uppercase text-slate-500">
                 YEARS OF INNOVATION
               </p>
             </div>
-            <div className="bg-navy text-white p-12 col-span-1 md:col-span-2 flex flex-col justify-between">
-              <p className="font-body text-lg md:text-xl opacity-80 italic leading-relaxed">
+            <div className="bg-navy text-white p-6 md:p-12 col-span-1 md:col-span-2 flex flex-col justify-between">
+              <p className="font-body text-base md:text-xl opacity-80 italic leading-relaxed">
                 "Precision is not just a standard; it's our foundational philosophy. At Voltworks, every component is a testament to our commitment to industrial excellence."
               </p>
               <p className="font-headline text-[10px] font-bold mt-8 text-primary tracking-widest uppercase">
                 CHIEF TECHNICAL OFFICER
               </p>
             </div>
-            <div className="bg-white p-12 border border-outline-v/30 flex flex-col justify-between aspect-square md:aspect-auto">
-              <span className="text-5xl md:text-6xl font-headline text-primary">500+</span>
+            <div className="bg-white p-6 md:p-12 border border-outline-v/30 flex flex-col justify-between">
+              <span className="text-4xl md:text-6xl font-headline text-primary">500+</span>
               <p className="font-headline text-[10px] font-bold mt-8 tracking-widest uppercase text-slate-500">
                 GLOBAL INSTALLATIONS
               </p>
@@ -515,7 +502,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-navy py-24 px-6 md:px-16 text-center">
+      <section className="bg-navy py-12 md:py-24 px-6 md:px-16 text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
