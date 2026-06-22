@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-[#040a1e] overflow-x-hidden w-full">
       {/* Hero Section — Premium Redesign */}
-      <section className="relative w-full min-h-screen bg-[#040a1e] overflow-hidden flex flex-col justify-center">
+      <section className="relative w-full min-h-[auto] md:min-h-screen bg-[#040a1e] overflow-hidden flex flex-col justify-start md:justify-center">
 
         {/* === BACKGROUND LAYERS === */}
         {/* 1. Background video */}
@@ -124,14 +124,14 @@ export default function Home() {
         }} />
 
         {/* === CONTENT === */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full flex flex-col justify-center min-h-screen pt-24 pb-16 md:py-32">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 w-full flex flex-col justify-start md:justify-center min-h-[auto] md:min-h-screen pt-24 pb-8 md:py-32">
 
           {/* Animated badge */}
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 flex items-center gap-3"
+            className="mb-4 md:mb-6 flex items-center gap-3"
           >
             <span className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]"
               style={{
@@ -150,7 +150,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-headline font-bold leading-[1.08] tracking-tight text-white mb-6"
+            className="font-headline font-bold leading-[1.08] tracking-tight text-white mb-4 md:mb-6"
             style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)', maxWidth: '820px' }}
           >
             Enabling Smart &amp;{' '}
@@ -168,7 +168,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="font-body text-base md:text-lg text-slate-300 mb-10 leading-relaxed"
+            className="font-body text-base md:text-lg text-slate-300 mb-8 md:mb-10 leading-relaxed"
             style={{ maxWidth: '520px' }}
           >
             Our software-defined powertrain kits bring intelligence, OTA updates, and real-time cloud analytics to every EV — from prototype to mass production.
@@ -179,7 +179,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex flex-wrap gap-4 mb-16"
+            className="flex flex-wrap gap-4 mb-12 md:mb-16"
           >
             <Link
               to="/contact"
